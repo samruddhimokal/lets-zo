@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 48 96% 53%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 48 96% 53%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-primary text-primary-foreground font-inter antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-secondary/50 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  
+  .hover-card {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
+  }
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.reveal-text {
+  opacity: 0;
+  animation: text-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.chat-bubble {
+  position: relative;
+  background: #222;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  max-width: 80%;
+}
+
+.chat-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: #222;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
